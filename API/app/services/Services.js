@@ -1,5 +1,9 @@
+import { EmptyResultError } from 'sequelize';
 import * as Repository from '../repositories/Repository.js'
-
+//Login
+export const userLogin = async (email,password)=>{ 
+    return await Repository.userLogin(email,password);
+}
 //PARA O USUARIO_____________________________________________
 export const createUsuario = async (userData) => {
     return await Repository.createUsuario(userData);

@@ -26,5 +26,6 @@ const Chat = sequelize.define('chat', {
         allowNull: false
     }
 });
+sequelize.sync() .then(() => { console.log('Database & tables created!'); }) .catch(err => { console.error('Error creating database & tables:', err); });
 
 export default Chat;

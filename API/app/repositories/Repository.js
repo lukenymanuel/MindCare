@@ -9,7 +9,15 @@ import Chat from "../models/Chat.js";
 import Mensagem from "../models/Mensagem.js";
  
 //PARA O USUARIO_____________________________________________________________________
-//adicionar usurio
+//login
+export const userLogin = async (email,password) => {
+    return await Usuario.findAll({ where: { email: email,
+         password : password
+     }});
+
+}
+
+//adicionar usuario
 export const createUsuario = async (userData) => {
     return await Usuario.create(userData);
 };

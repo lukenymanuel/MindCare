@@ -1,6 +1,23 @@
 import { json } from "sequelize";
 import * as Services from "../services/Services.js";
 
+// LOGIN___________________
+export const userLogin = async (req, res) => {
+    try {
+        const { email, password } = req.body;  // Utilize req.body para capturar os dados enviados no corpo da solicitação
+
+        if (!email || !password) {
+            return res.status(400).json({ error: "Email and password are required" });
+        }
+
+        const user = await Services.userLogin(email, password);
+        res.status(200).json(user);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+
 //PARA O USUARIO_______________________________________________
 export const getAllUsuario = async (req, res) => {
     try {

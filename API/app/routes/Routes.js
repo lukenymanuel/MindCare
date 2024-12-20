@@ -2,6 +2,8 @@ import express from "express";
 import * as Controller from "../controllers/Controller.js";
 
 const router = express.Router();
+//LOGIN________________________
+router.post("/login",Controller.userLogin);
 
 //PARA O USUARIO__________________________________________
 router.get("/users", Controller.getAllUsuario);
